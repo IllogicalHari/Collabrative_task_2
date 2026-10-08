@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations & Packages | Member 2</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            padding-bottom: 50px;
+        }
+
+        /* Nav Header */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #161b22;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo span { color: #00d2ff; }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a.active { color: #00d2ff; }
+
+        /* Header Title */
+        .page-header {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #8b949e;
+            font-size: 1.1rem;
+        }
+
+        /* Destination Cards Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: #00d2ff;
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.08);
+        }
+
+        .duration-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #00d2ff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .location-tag {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-desc {
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            margin-top: auto;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00d2ff;
+        }
+
+        .price-tag span {
+            font-size: 0.8rem;
+            color: #8b949e;
+            font-weight: 400;
+        }
+
+        .book-link {
+            padding: 8px 18px;
+            background: rgba(0, 210, 255, 0.15);
+            color: #00d2ff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .book-link:hover {
+            background: #00d2ff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fa-solid fa-compass"></i> Wanderlust<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home & Company</a></li>
+            <li><a href="services.html" class="active">Services & Destinations</a></li>
+            <li><a href="booking.html">Intake & Inquiry</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <h1>Curated Travel Packages</h1>
+        <p>Explore our most popular travel destinations with fixed durations and transparent pricing.</p>
+    </div>
+
+    <div class="grid-container">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali" class="card-img">
+                <span class="duration-badge"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Bali Tropical Getaway</h3>
+                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> Indonesia</p>
+                <p class="card-desc">Explore lush jungle temples, vibrant rice terraces, and relax on pristine tropical beaches with private luxury villa stays.</p>
+                <div class="card-footer">
+                    <div class="price-tag">$1,299 <span>/ person</span></div>
+                    <a href="booking.html" class="book-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Amalfi Coast" class="card-img">
+                <span class="duration-badge"><i class="fa-regular fa-clock"></i> 10 Days / 9 Nights</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Amalfi Coast & Rome</h3>
+                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> Italy</p>
+                <p class="card-desc">Experience Mediterranean coastal views, ancient historical ruins, guided vineyard wine tours, and authentic Italian dining.</p>
+                <div class="card-footer">
+                    <div class="price-tag">$2,450 <span>/ person</span></div>
+                    <a href="booking.html" class="book-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Kyoto" class="card-img">
+                <span class="duration-badge"><i class="fa-regular fa-clock"></i> 8 Days / 7 Nights</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Kyoto & Tokyo Highlights</h3>
+                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> Japan</p>
+                <p class="card-desc">Immerse yourself in neon cityscapes, ancient shrines, bullet train travel, and traditional tea ceremony culture.</p>
+                <div class="card-footer">
+                    <div class="price-tag">$1,890 <span>/ person</span></div>
+                    <a href="booking.html" class="book-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" alt="Swiss Alps" class="card-img">
+                <span class="duration-badge"><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Swiss Alpine Express</h3>
+                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> Switzerland</p>
+                <p class="card-desc">Scenic mountain rail journeys, alpine lake cruises, snow-capped peaks, and cozy village resort stays.</p>
+                <div class="card-footer">
+                    <div class="price-tag">$2,100 <span>/ person</span></div>
+                    <a href="booking.html" class="book-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai" class="card-img">
+                <span class="duration-badge"><i class="fa-regular fa-clock"></i> 5 Days / 4 Nights</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Dubai Desert & Luxury</h3>
+                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> United Arab Emirates</p>
+                <p class="card-desc">Dune bashing, luxury shopping, futuristic skyscrapers, and private yacht cruises along the coastline.</p>
+                <div class="card-footer">
+                    <div class="price-tag">$1,150 <span>/ person</span></div>
+                    <a href="booking.html" class="book-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80" alt="Reykjavik" class="card-img">
+                <span class="duration-badge"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Icelandic Northern Lights</h3>
+                <p class="location-tag"><i class="fa-solid fa-location-dot"></i> Iceland</p>
+                <p class="card-desc">Witness geothermal hot springs, massive waterfalls, glacier hikes, and night hunts for the Northern Lights.</p>
+                <div class="card-footer">
+                    <div class="price-tag">$1,750 <span>/ person</span></div>
+                    <a href="booking.html" class="book-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
