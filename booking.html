@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler Intake & Registration | Member 3</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            padding-bottom: 60px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #161b22;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo { font-size: 1.6rem; font-weight: 700; color: #fff; }
+        .logo span { color: #00d2ff; }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a.active { color: #00d2ff; }
+
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #161b22;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #8b949e;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #c9d1d9;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #00d2ff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #00d2ff, #0072ff);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(46, 160, 67, 0.15);
+            border: 1px solid #2ea043;
+            color: #3fb950;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fa-solid fa-compass"></i> Wanderlust<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home & Company</a></li>
+            <li><a href="services.html">Services & Destinations</a></li>
+            <li><a href="booking.html" class="active">Intake & Inquiry</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h2 class="form-title">Traveler Intake Form</h2>
+        <p class="form-subtitle">Fill in your traveler details below to customize or register for your upcoming trip.</p>
+
+        <form id="travelerForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name *</label>
+                    <input type="text" id="fname" required placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name *</label>
+                    <input type="text" id="lname" required placeholder="Doe">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required placeholder="john.doe@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="+1 (555) 000-0000">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="destination">Target Destination *</label>
+                    <select id="destination" required>
+                        <option value="" disabled selected>Select Destination</option>
+                        <option value="bali">Bali, Indonesia (7 Days)</option>
+                        <option value="italy">Amalfi Coast, Italy (10 Days)</option>
+                        <option value="japan">Kyoto & Tokyo, Japan (8 Days)</option>
+                        <option value="swiss">Swiss Alps, Switzerland (6 Days)</option>
+                        <option value="dubai">Dubai, UAE (5 Days)</option>
+                        <option value="iceland">Iceland Northern Lights (7 Days)</option>
+                        <option value="custom">Custom Location</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers *</label>
+                    <input type="number" id="travelers" min="1" max="20" value="2" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Preferred Travel Date *</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Approximate Budget Per Person</label>
+                    <select id="budget">
+                        <option value="1000">$1,000 - $1,500</option>
+                        <option value="2000">$1,500 - $2,500</option>
+                        <option value="3000">$2,500 - $4,000</option>
+                        <option value="5000">$4,000+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Special Requirements / Dietary Preferences / Notes</label>
+                <textarea id="notes" rows="4" placeholder="Let us know if you need specific hotel accommodations, vegetarian meals, or airport transfer details..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit Details</button>
+        </form>
+
+        <div id="successMsg" class="success-message">
+            <i class="fa-solid fa-circle-check"></i> Thank you! Your travel intake details have been submitted. Our team will contact you within 24 hours.
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('travelerForm').reset();
+            const msg = document.getElementById('successMsg');
+            msg.style.display = 'block';
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>
