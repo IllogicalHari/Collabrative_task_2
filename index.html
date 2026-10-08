@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Voyages | Home & About</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #ffffff;
+            background-color: #0d1117;
+            overflow-x: hidden;
+        }
+
+        /* Fullscreen Hero Background Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), 
+                        url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #00d2ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #00d2ff;
+        }
+
+        /* Hero Main Content */
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #e0e0e0;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, #00d2ff, #0072ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 210, 255, 0.5);
+        }
+
+        /* Overlay Cards Section over Background */
+        .info-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 8% 60px 8%;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .info-card i {
+            font-size: 2.2rem;
+            color: #00d2ff;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .info-card p, .info-card ul {
+            font-size: 0.95rem;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Section: Contact Bar */
+        .contact-bar {
+            background: #161b22;
+            padding: 50px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: #00d2ff;
+            margin-bottom: 10px;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .contact-item p {
+            color: #8b949e;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d1117;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #6e7681;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.3rem; }
+            nav { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fullscreen Hero Background Container -->
+    <div class="hero-section">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo"><i class="fa-solid fa-compass"></i> Wanderlust<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home & Company</a></li>
+                <li><a href="services.html">Services & Destinations</a></li>
+                <li><a href="booking.html">Intake & Inquiry</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Headline -->
+        <div class="hero-content">
+            <h1 class="hero-title">Explore The World With Unmatched Elegance</h1>
+            <p class="hero-subtitle">Crafting bespoke travel experiences, luxury getaways, and seamless global adventures tailored to your desires.</p>
+            <a href="services.html" class="cta-btn">View Tour Packages</a>
+        </div>
+
+        <!-- Cards Overlay on Top of Hero Background -->
+        <div class="info-cards-container">
+            <div class="info-card">
+                <i class="fa-solid fa-building"></i>
+                <h3>About Our Company</h3>
+                <p>Founded in 2018, Wanderlust Voyages has organized over 15,000 trips across 60+ countries. We focus on authentic experiences, luxury comfort, and sustainable travel practices.</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-bullseye"></i>
+                <h3>Our Mission & Values</h3>
+                <p>To connect people with world cultures through eco-conscious, personalized itineraries that create lifelong memories while empowering local communities.</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-award"></i>
+                <h3>Why Choose Us</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check" style="color:#00d2ff;"></i> 24/7 Global On-Trip Support</li>
+                    <li><i class="fa-solid fa-check" style="color:#00d2ff;"></i> Best Price Guarantee</li>
+                    <li><i class="fa-solid fa-check" style="color:#00d2ff;"></i> Handpicked Accommodations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Details Section -->
+    <section class="contact-bar">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>Global HQ</h4>
+                <p>742 Evergreen Terrace, Suite 400<br>New York, NY 10001</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <h4>Call Us</h4>
+                <p>+1 (800) 555-0199<br>Mon-Fri, 9am - 6pm EST</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <h4>Email Support</h4>
+                <p>support@wanderlust.com<br>info@wanderlust.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Wanderlust Voyages Inc. Member 1 Page (Home & Company Details).</p>
+    </footer>
+
+</body>
+</html>
